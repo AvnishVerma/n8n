@@ -18,8 +18,8 @@ services:
       - key: EXECUTIONS_PROCESS
         value: "main"
       - key: OPENAI_API_KEY
-        sync: false
+        value: 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
       - key: WHATSAPP_TOKEN
-        sync: false
+        value: 728690576994405
       - key: WHATSAPP_PHONE_ID
-        sync: false
+        value: 728690576994405
