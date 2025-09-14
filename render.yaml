@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: n8n-bot
+    env: node
+    plan: free
+    buildCommand: "npm install --legacy-peer-deps && npm run build"
+    startCommand: "n8n start"
+    branch: main
+    envVars:
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: "admin"
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: "yourpassword"
+      - key: WEBHOOK_URL
+        value: "https://n8n-bot.onrender.com/"
+      - key: EXECUTIONS_PROCESS
+        value: "main"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: WHATSAPP_TOKEN
+        sync: false
+      - key: WHATSAPP_PHONE_ID
+        sync: false
