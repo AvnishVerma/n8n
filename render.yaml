@@ -1,11 +1,9 @@
 services:
   - type: web
     name: n8n-bot
-    env: node
+    env: docker
     plan: free
-    buildCommand: "npm install --legacy-peer-deps && npm run build"
-    startCommand: "n8n start"
-    branch: Published
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: N8N_BASIC_AUTH_ACTIVE
         value: "true"
@@ -18,8 +16,8 @@ services:
       - key: EXECUTIONS_PROCESS
         value: "main"
       - key: OPENAI_API_KEY
-        value: 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
+        sync: false
       - key: WHATSAPP_TOKEN
-        value: 728690576994405
+        sync: false
       - key: WHATSAPP_PHONE_ID
-        value: 728690576994405
+        sync: false
