@@ -1,23 +1,27 @@
+# Exported from Render
+version: "1"
 services:
   - type: web
-    name: n8n-bot
-    env: docker
+    name: n8n
+    runtime: image
+    image:
+      url: docker.n8n.io/n8nio/n8n:latest
     plan: free
-    dockerfilePath: ./docker/images/runners/Dockerfile
+    region: oregon
+    autoDeploy: true
     envVars:
-      - key: N8N_BASIC_AUTH_ACTIVE
-        value: "true"
-      - key: N8N_BASIC_AUTH_USER
-        value: "admin"
-      - key: N8N_BASIC_AUTH_PASSWORD
-        value: "yourpassword"
-      - key: WEBHOOK_URL
-        value: "https://n8n-bot.onrender.com/"
-      - key: EXECUTIONS_PROCESS
-        value: "main"
-      - key: OPENAI_API_KEY
-        sync: false   # set this in dashboard
-      - key: WHATSAPP_TOKEN
-        sync: false   # set this in dashboard
-      - key: WHATSAPP_PHONE_ID
-        sync: false   # set this in dashboard
+      - key: DB_TYPE
+        value: mysqldb
+      - key: DB_MYSQLDB_HOST
+        value: "148.113.47.114"
+      - key: DB_MYSQLDB_PORT
+        value: "3306"
+      - key: DB_MYSQLDB_DATABASE
+        value: "npczxzbp_n8n"
+      - key: DB_MYSQLDB_USER
+        value: "ektool"
+      - key: DB_MYSQLDB_PASSWORD
+        value: "ekTool@123"
+      # Optional: set to your external URL so webhooks work
+      #- key: WEBHOOK_URL
+      #  value: https://your-n8n.onrender.com
